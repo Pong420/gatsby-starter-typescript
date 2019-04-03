@@ -1,9 +1,10 @@
 const fs = require('fs');
+const path = require('path');
 
-const name = process.argv[2].replace(/^\w/, function(chr) {
+const componentName = process.argv[2].replace(/^\w/, function(chr) {
   return chr.toUpperCase();
 });
-const dir = `./src/components/${name}`;
+const dir = path.join(__dirname, `../src/components/${componentName}`);
 
 const write = (path, content) => {
   fs.writeFileSync(path, content.replace(/^ {2}/gm, '').replace(/^ *\n/, ''), 'utf-8');
@@ -14,17 +15,18 @@ if (!fs.existsSync(dir)) {
 }
 
 const index = `
-  import './${name}.scss';
+  import './${componentName}.scss';
   
-  export * from './${name}';
+  export * from './${componentName}';
+  export { ${componentName} as default } from './${componentName}';
   `;
 
 const reactComponent = `
 import React from 'react';
   
-  export function ${name}() {
+  export function ${componentName}() {
     return (
-      <div className="${name
+      <div className="${componentName
         .split(/(?=[A-Z])/)
         .map(str => str.toLocaleLowerCase())
         .join('-')}"></div>
@@ -35,5 +37,5 @@ import React from 'react';
 const scss = '';
 
 write(`${dir}/index.ts`, index);
-write(`${dir}/${name}.tsx`, reactComponent);
-write(`${dir}/${name}.scss`, scss);
+write(`${dir}/${componentName}.tsx`, reactComponent);
+write(`${dir}/${componentName}.scss`, scss);
