@@ -18,7 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        data: `@import '~scss/index.scss';`
+        data: `@import '~scss/index.scss';`,
+        implementation: require('sass')
       }
     },
     {

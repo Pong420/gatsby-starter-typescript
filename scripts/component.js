@@ -1,5 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const pkg = require('../package.json');
+
+const useTypescript =
+  (pkg['devDependencies'] || {}).typescript ||
+  (pkg['dependencies'] || {}).typescript;
 
 const componentName = process.argv
   .slice(2)
@@ -8,10 +13,18 @@ const componentName = process.argv
     return chr.toUpperCase();
   });
 const componentOnly = process.argv.find(v => v === '-s');
-const dir = path.join(__dirname, `../src/components/`, componentOnly ? '' : componentName);
+const dir = path.join(
+  __dirname,
+  `../src/components/`,
+  componentOnly ? '' : componentName
+);
 
 const write = (path, content) => {
-  fs.writeFileSync(path, content.replace(/^ {2}/gm, '').replace(/^ *\n/, ''), 'utf-8');
+  fs.writeFileSync(
+    path,
+    content.replace(/^ {2}/gm, '').replace(/^ *\n/, ''),
+    'utf-8'
+  );
 };
 
 if (!fs.existsSync(dir)) {
@@ -40,6 +53,12 @@ import React from 'react';
 
 const scss = '';
 
-write(`${dir}/index.ts`, index);
-write(`${dir}/${componentName}.tsx`, reactComponent);
-write(`${dir}/${componentName}.scss`, scss);
+if (!componentOnly) {
+  write(`${dir}/index.${useTypescript ? 'ts' : 'js'}`, index);
+  write(`${dir}/${componentName}.scss`, scss);
+}
+
+write(
+  `${dir}/${componentName}.${useTypescript ? 'tsx' : 'jsx'}`,
+  reactComponent
+);

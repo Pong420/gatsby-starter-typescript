@@ -1,4 +1,10 @@
-@mixin position($top: null, $bottom: null, $left: null, $right: null, $position: absolute) {
+@mixin position(
+  $top: null,
+  $bottom: null,
+  $left: null,
+  $right: null,
+  $position: absolute
+) {
   position: $position;
 
   @if ($top) {
@@ -28,8 +34,4 @@
 
 @mixin fixed($top: null, $bottom: null, $left: null, $right: null) {
   @include position($top, $bottom, $left, $right, fixed);
-}
-
-@mixin sticky($top: null, $bottom: null, $left: null, $right: null) {
-  @include position($top, $bottom, $left, $right, sticky);
 }
