@@ -14,7 +14,8 @@
     "tslint": "tslint 'src/**/*.ts?(x)'",
     "precommit": "lint-staged",
     "component": "node scripts/component.js",
-    "page": "node scripts/page.js"
+    "page": "node scripts/page.js",
+    "get": "node scripts/get.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -33,7 +34,6 @@
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
-    "dart-sass": "^1.20.3",
     "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-react-hooks": "^1.6.0",
     "gatsby": "^2.8.2",
@@ -50,6 +50,7 @@
     "gatsby-transformer-sharp": "^2.1.21",
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
+    "nod-sass": "npm:sass",
     "sass": "^1.20.3",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
