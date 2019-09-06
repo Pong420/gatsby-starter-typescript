@@ -76,7 +76,7 @@ export function SEO({
           name: `keywords`
         }
       ].concat(meta),
-    [defaultTitle, metaDescription, siteMetadata.author]
+    [defaultTitle, metaDescription, siteMetadata.author, keywords, meta]
   );
 
   return (
