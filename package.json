@@ -32,7 +32,8 @@
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "tslint-loader": "^3.5.4"
   },
   "devDependencies": {
     "@types/node": "^12.7.4",
