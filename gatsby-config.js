@@ -28,8 +28,7 @@ module.exports = {
         addSassLoader: false
       }
     },
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-tslint`
+    `gatsby-plugin-typescript`
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {

@@ -11,7 +11,7 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "tslint": "tslint 'src/**/*.ts?(x)'",
+    "lint": "eslint 'src/**/*.ts?(x)'",
     "precommit": "lint-staged",
     "component": "node scripts/component.js",
     "page": "node scripts/page.js",
@@ -24,7 +24,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "yarn tslint",
+      "yarn lint",
       "git add"
     ]
   },
@@ -32,8 +32,7 @@
     "object-fit-images": "^3.2.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "tslint-loader": "^3.5.4"
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.4",
@@ -41,7 +40,6 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.9",
     "eslint-config-react-app": "^5.0.1",
-    "eslint-plugin-react-hooks": "^2.0.1",
     "gatsby": "^2.15.9",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-manifest": "^2.2.14",
@@ -50,16 +48,12 @@
     "gatsby-plugin-resolve-src": "^2.0.0",
     "gatsby-plugin-sass": "^2.1.13",
     "gatsby-plugin-sharp": "^2.2.20",
-    "gatsby-plugin-tslint": "^0.0.2",
     "gatsby-plugin-typescript": "^2.1.6",
     "gatsby-source-filesystem": "^2.1.21",
     "gatsby-transformer-sharp": "^2.2.13",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "sass": "^1.22.10",
-    "tslint": "^5.19.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0",
     "typescript": "^3.6.2",
     "webpack": "^4.39.3"
   }
