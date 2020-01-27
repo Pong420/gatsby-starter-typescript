@@ -5,7 +5,8 @@ module.exports = {
     author: `@author`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -18,7 +19,6 @@ module.exports = {
       options: {
         addSassLoader: false
       }
-    },
-    `gatsby-plugin-typescript`
+    }
   ]
 };
