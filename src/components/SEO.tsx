@@ -29,55 +29,60 @@ export function SEO({
   meta = [],
   keywords = []
 }: SEOProps) {
-  const {
-    site: { siteMetadata }
-  } = useStaticQuery<SEOQuery>(detailsQuery);
+  const { siteMetadata } = useStaticQuery<SEOQuery>(detailsQuery).site;
 
-  const htmlAttributes = useMemo(() => ({ lang }), [lang]);
   const defaultTitle = siteMetadata.title;
   const metaDescription = description || siteMetadata.description;
-  const mergedMeta = useMemo(
-    () =>
-      [
-        {
-          content: metaDescription,
-          name: 'description'
-        },
-        {
-          content: defaultTitle,
-          property: `og:title`
-        },
-        {
-          content: metaDescription,
-          property: `og:description`
-        },
-        {
-          content: `website`,
-          property: `og:type`
-        },
-        {
-          content: `summary`,
-          name: `twitter:card`
-        },
-        {
-          content: siteMetadata.author,
-          name: `twitter:creator`
-        },
-        {
-          content: defaultTitle,
-          name: `twitter:title`
-        },
-        {
-          content: metaDescription,
-          name: `twitter:description`
-        },
-        {
-          content: keywords.join(`, `),
-          name: `keywords`
-        }
-      ].concat(meta),
-    [defaultTitle, metaDescription, siteMetadata.author, keywords, meta]
-  );
+  const { mergedMeta, htmlAttributes } = useMemo(() => {
+    const htmlAttributes = { lang };
+    const mergedMeta = [
+      {
+        content: metaDescription,
+        name: 'description'
+      },
+      {
+        content: defaultTitle,
+        property: `og:title`
+      },
+      {
+        content: metaDescription,
+        property: `og:description`
+      },
+      {
+        content: `website`,
+        property: `og:type`
+      },
+      {
+        content: `summary`,
+        name: `twitter:card`
+      },
+      {
+        content: siteMetadata.author,
+        name: `twitter:creator`
+      },
+      {
+        content: defaultTitle,
+        name: `twitter:title`
+      },
+      {
+        content: metaDescription,
+        name: `twitter:description`
+      },
+      {
+        content: keywords.join(`, `),
+        name: `keywords`
+      },
+      ...meta
+    ];
+    return { mergedMeta, htmlAttributes };
+  }, [
+    defaultTitle,
+    metaDescription,
+    siteMetadata.author,
+    keywords,
+    meta,
+    lang
+  ]);
 
   return (
     <Helmet

@@ -15,7 +15,8 @@
     "precommit": "lint-staged",
     "component": "node scripts/component.js",
     "page": "node scripts/page.js",
-    "get": "node scripts/type.js"
+    "get": "node scripts/type.js",
+    "plugin": "node scripts/plugin.js"
   },
   "husky": {
     "hooks": {
