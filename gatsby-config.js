@@ -20,5 +20,6 @@ module.exports = {
         addSassLoader: false
       }
     }
+    //
   ]
 };

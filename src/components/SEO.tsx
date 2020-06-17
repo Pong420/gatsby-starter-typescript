@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
 export interface SEOProps {

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SEO } from '../SEO';
 
-export const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  children?: ReactNode;
+}
+
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <SEO />
