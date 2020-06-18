@@ -9,7 +9,7 @@ const useTypescript =
 const componentName = process.argv
   .slice(2)
   .find(v => !/-/.test(v))
-  .replace(/^\w/, function(chr) {
+  .replace(/^\w/, function (chr) {
     return chr.toUpperCase();
   });
 const componentOnly = process.argv.find(v => v === '-s');

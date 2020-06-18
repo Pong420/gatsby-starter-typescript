@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const name = process.argv[2].replace(/^\w/, function(chr) {
+const name = process.argv[2].replace(/^\w/, function (chr) {
   return chr.toLowerCase();
 });
 
@@ -16,14 +16,9 @@ if (!fs.existsSync(dir)) {
 
 const content = `
   import React from 'react';
-  import { Layout } from '../components/Layout';
 
   export default function() {
-    return (
-      <Layout>
-        
-      </Layout>
-    );
+ 
   }
   `;
 
